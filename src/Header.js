@@ -28,6 +28,10 @@ function Header() {
                     <p>Home</p>
                 </div>
                 <div className="header__icon">
+                    <LiveTvIcon />
+                    <p>Home</p>
+                </div>
+                <div className="header__icon">
                     <PersonOutlineIcon />
                     <p>Home</p>
                 </div>                

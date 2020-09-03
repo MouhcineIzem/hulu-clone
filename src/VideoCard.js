@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import "./videocard.css";
+import TextTruncate from 'react-text-truncate';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
 
-function VideoCard() {
+const VideoCard = forwardRef(({ movie }, ref) => {
+    const base_url = "https://image.tmdb.org/t/p/original/";
     return (
-        <div className="videoCard">
+        <div def={ref} className="videoCard">
             <img 
-                src="https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg"
-                alt=""
+                src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
+                alt="movie poster"
             />
-            <p>This is a film about</p>
-            <h2>Movie title</h2>
-            <p>Number of likes...</p>
+            <TextTruncate 
+                line="{1}"
+                element="p"
+                truncateText="..."
+                text={movie.overview}
+            />
+            <h2>{movie.title || movie.original_name}</h2>
+            <p className="videoCard__stats">
+                {movie.release_date || movie.first_air_date} 
+                {"  "}<ThumbUpIcon />{"  "}{movie.vote_count}
+            </p>
+
         </div>
     )
-}
+})
 
 export default VideoCard

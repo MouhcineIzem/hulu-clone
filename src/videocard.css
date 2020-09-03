@@ -1,0 +1,19 @@
+.videaoCard {
+    color: white;
+    width: 500px;
+    padding: 20px;
+    transition: transform 100ms;
+}
+
+.videaoCard:hover {
+    transform: scale(1.09);
+}
+.videaoCard > img {
+    height: 300px;
+    object-fit: contain;
+    width: 500px;
+}
+
+.videaoCard > h2 {
+    padding-top: 10px;
+}
